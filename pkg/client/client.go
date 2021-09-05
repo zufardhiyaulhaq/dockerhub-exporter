@@ -83,6 +83,40 @@ func (c *KubernetesClient) GetDockerhubDeployments() []model.DeploymentInfo {
 	return deploymentData
 }
 
+func (c *KubernetesClient) GetDockerhubDaemonSets() []model.DaemonSetInfo {
+	var daemonSetData []model.DaemonSetInfo
+
+	daemonSetAppsV1, err := c.Client.AppsV1().DaemonSets("").List(context.TODO(), metav1.ListOptions{})
+	if err != nil {
+		log.Errorln("cannot find deployment")
+	}
+
+	for _, daemonset := range daemonSetAppsV1.Items {
+		for _, container := range daemonset.Spec.Template.Spec.Containers {
+			repo, err := reference.Parse(container.Image)
+			if err != nil {
+				log.Errorln("cannot parse container image")
+				continue
+			}
+
+			if named, ok := repo.(reference.Named); ok {
+				domain := reference.Domain(named)
+
+				if !contains(c.Settings.ExcludedRegistry, domain) {
+					daemonSetData = append(daemonSetData, model.DaemonSetInfo{
+						Name:          daemonset.Name,
+						Namespace:     daemonset.Namespace,
+						ContainerName: container.Name,
+						Image:         container.Image,
+					})
+				}
+			}
+		}
+	}
+
+	return daemonSetData
+}
+
 func (c *KubernetesClient) GetStatus() (bool, error) {
 	version, err := c.Client.ServerVersion()
 	if err != nil {
