@@ -30,4 +30,4 @@ spec:
           - name: USE_SERVICE_ACCOUNT
             value: "true"
           - name: EXCLUDED_REGISTRY
-            value: {{ .Values.excludedRepository }}
+            value: "{{ .Values.excludedRepository }}"

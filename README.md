@@ -28,7 +28,7 @@ deployment_dockerhub_image{container_name="community-operator-container",image="
 |-----|------|---------|-------------|
 | excludedRepository | string | `"ghcr.io,quay.io,k8s.gcr.io,gcr.io"` |  |
 | image.name | string | `"zufardhiyaulhaq/dockerhub-exporter"` |  |
-| image.tag | string | `"1.0.0"` |  |
+| image.tag | string | `"v1.0.0"` |  |
 | pullPolicy | string | `"Always"` |  |
 | serviceMonitor.enabled | bool | `true` |  |
 
