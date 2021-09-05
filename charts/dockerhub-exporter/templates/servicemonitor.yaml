@@ -14,8 +14,10 @@ spec:
   endpoints:
   - interval: 60s
     port: http
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
   selector:
     matchLabels:
       app.kubernetes.io/instance: {{ .Release.Name }}
-      app.kubernetes.io/name: {{ .Release.Service }}
 {{ end }}
