@@ -22,13 +22,13 @@ func (collector *DockerhubImageCollector) Collect(channel chan<- prometheus.Metr
 	deployments := collector.client.GetDockerhubDeployments()
 
 	for _, deployment := range deployments {
-		channel <- prometheus.MustNewConstMetric(collector.dockerHubDeploymentImageMetrics, prometheus.CounterValue, DefaultMetricsValue, deployment.Namespace, deployment.Name, deployment.ContainerName, deployment.Image)
+		channel <- prometheus.MustNewConstMetric(collector.dockerHubDeploymentImageMetrics, prometheus.GaugeValue, DefaultMetricsValue, deployment.Namespace, deployment.Name, deployment.ContainerName, deployment.Image)
 	}
 
 	daemonSets := collector.client.GetDockerhubDaemonSets()
 
 	for _, daemonSet := range daemonSets {
-		channel <- prometheus.MustNewConstMetric(collector.dockerHubDaemonSetImageMetrics, prometheus.CounterValue, DefaultMetricsValue, daemonSet.Namespace, daemonSet.Name, daemonSet.ContainerName, daemonSet.Image)
+		channel <- prometheus.MustNewConstMetric(collector.dockerHubDaemonSetImageMetrics, prometheus.GaugeValue, DefaultMetricsValue, daemonSet.Namespace, daemonSet.Name, daemonSet.ContainerName, daemonSet.Image)
 	}
 }
 
