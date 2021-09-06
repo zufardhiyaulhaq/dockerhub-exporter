@@ -36,7 +36,7 @@ daemonset_dockerhub_image{container_name="driver-registrar",image="k8s.gcr.io/si
 |-----|------|---------|-------------|
 | excludedRepository | string | `"ghcr.io,quay.io,k8s.gcr.io,gcr.io"` |  |
 | image.name | string | `"zufardhiyaulhaq/dockerhub-exporter"` |  |
-| image.tag | string | `"v1.1.0"` |  |
+| image.tag | string | `"v1.1.1"` |  |
 | pullPolicy | string | `"Always"` |  |
 | serviceMonitor.enabled | bool | `true` |  |
 
