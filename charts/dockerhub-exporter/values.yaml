@@ -7,4 +7,6 @@ pullPolicy: "Always"
 serviceMonitor:
   enabled: true
 
+imagePullSecrets: []
+
 excludedRepository: "ghcr.io,quay.io,k8s.gcr.io,gcr.io"

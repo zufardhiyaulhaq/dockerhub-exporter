@@ -2,7 +2,7 @@
 
 dockerhub-exporter, export deployment with dockerhub image information to prometheus
 
-![Version: 1.1.1](https://img.shields.io/badge/Version-1.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.1](https://img.shields.io/badge/AppVersion-1.1.1-informational?style=flat-square) [![made with Go](https://img.shields.io/badge/made%20with-Go-brightgreen)](http://golang.org)
+![Version: 1.2.0](https://img.shields.io/badge/Version-1.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.1](https://img.shields.io/badge/AppVersion-1.1.1-informational?style=flat-square) [![made with Go](https://img.shields.io/badge/made%20with-Go-brightgreen)](http://golang.org)
 
 ## Installing
 
@@ -37,6 +37,7 @@ daemonset_dockerhub_image{container_name="driver-registrar",image="k8s.gcr.io/si
 | excludedRepository | string | `"ghcr.io,quay.io,k8s.gcr.io,gcr.io"` |  |
 | image.name | string | `"zufardhiyaulhaq/dockerhub-exporter"` |  |
 | image.tag | string | `"v1.1.1"` |  |
+| imagePullSecrets | list | `[]` |  |
 | pullPolicy | string | `"Always"` |  |
 | serviceMonitor.enabled | bool | `true` |  |
 
