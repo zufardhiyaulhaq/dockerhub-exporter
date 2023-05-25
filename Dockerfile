@@ -19,7 +19,7 @@ WORKDIR /home/dockerhub-exporter
 #################
 # Builder image
 #################
-FROM golang:1.16-alpine AS dockerhub-exporter-builder
+FROM golang:1.19-alpine AS dockerhub-exporter-builder
 RUN apk add --update --no-cache alpine-sdk
 WORKDIR /app
 COPY . .
