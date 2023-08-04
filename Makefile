@@ -43,7 +43,7 @@ test:
 
 .PHONY: lint
 lint: 
-	go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
+	go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
 	golangci-lint run --verbose --timeout 300s
 
 .PHONY: build
