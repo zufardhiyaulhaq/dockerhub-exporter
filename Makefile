@@ -43,8 +43,8 @@ test:
 
 .PHONY: lint
 lint: 
-	go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.41.1
-	golangci-lint run --verbose
+	go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
+	golangci-lint run --verbose --timeout 300s
 
 .PHONY: build
 build:
@@ -56,7 +56,6 @@ run:
 
 .PHONY: readme
 readme:
-	GO111MODULE=on go get github.com/norwoodj/helm-docs/cmd/helm-docs
 	helm-docs -c ./charts/dockerhub-exporter -d > README.md
 	helm-docs -c ./charts/dockerhub-exporter
 

@@ -1,12 +1,14 @@
 image:
   name: "zufardhiyaulhaq/dockerhub-exporter"
-  tag: "v1.1.1"
+  tag: "v1.3.0"
 
 pullPolicy: "Always"
+
+podLabels: {}
 
 serviceMonitor:
   enabled: true
 
 imagePullSecrets: []
 
-excludedRepository: "ghcr.io,quay.io,k8s.gcr.io,gcr.io"
+excludedRepository: "ghcr.io,quay.io,k8s.gcr.io,gcr.io,gke.gcr.io,registry.k8s.io"
